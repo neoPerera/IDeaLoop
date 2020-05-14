@@ -1,0 +1,2 @@
+rootProject.name='Bus Seek'
+include ':app'
