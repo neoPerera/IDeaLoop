@@ -1,6 +1,7 @@
 # IDeaLoop
 
 #Project Title: Bus Seek
+
 #Team Details:
     Team Name: IDeaLoop
     Team Members:
