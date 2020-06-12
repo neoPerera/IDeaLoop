@@ -37,7 +37,7 @@ public class PassengerRegister extends AppCompatActivity {
     EditText address;
     EditText email;
     EditText contactno;
-    EditText mainbus;
+    EditText mainbus,pass,cpass;
     Uri imguri;
     String url;
     String downloadimgurl;
@@ -61,6 +61,8 @@ public class PassengerRegister extends AppCompatActivity {
         register = findViewById(R.id.register);
         clear = findViewById(R.id.clear);
         select = findViewById(R.id.select);
+        pass = findViewById(R.id.pass);
+        cpass = findViewById(R.id.cpass);
 
         RefImg = FirebaseStorage.getInstance().getReference().child("PassengerImages");
         DBRef = FirebaseDatabase.getInstance().getReference().child("Passenger");
@@ -85,14 +87,31 @@ public class PassengerRegister extends AppCompatActivity {
                 OpenGallery();
             }
         });
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OpenGallery();
+            }
+        });
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String pasengerID = "PA-"+id;
 
-                StoreImage(pasengerID); //Img Store
+                if(pass.getText().toString().equals(cpass.getText().toString())) {
+                    StoreImage(pasengerID); //Img Store
+                }
+                else
+                    Toast.makeText(PassengerRegister.this,"Password and Confirm Password Do not Match",Toast.LENGTH_LONG).show();
 
+            }
+        });
+
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearAll();
             }
         });
 
@@ -166,13 +185,15 @@ public class PassengerRegister extends AppCompatActivity {
 
                             Toast.makeText(PassengerRegister.this, " got Product Image URL  Successfully", Toast.LENGTH_SHORT).show();
 
-                            String customertype = "busowner";
-                            BusOwner busOwner = new BusOwner(downloadimgurl,fname.getText().toString(), lname.getText().toString(),nic.getText().toString(), address.getText().toString(), contactno.getText().toString(), email.getText().toString(), mainbus.getText().toString(), busownerID1, customertype);
-                            busOwner.setEmail(email.getText().toString());
-                            busOwner.setImgurl(downloadimgurl);
-                            DBRef.child(busownerID1).setValue(busOwner);
+                            String customertype = "passenger";
+                            Passenger passenger = new Passenger(downloadimgurl,fname.getText().toString(), lname.getText().toString(),nic.getText().toString(), address.getText().toString(), contactno.getText().toString(), email.getText().toString(), mainbus.getText().toString(), busownerID1, customertype, pass.getText().toString());
+                            passenger.setEmail(email.getText().toString());
+                            passenger.setImgurl(downloadimgurl);
+                            passenger.setPassword(pass.getText().toString());
+                            DBRef.child(passenger.email).setValue(passenger);
                             id++;
 
+                            clearAll();
 
                         }
                     }
@@ -180,6 +201,8 @@ public class PassengerRegister extends AppCompatActivity {
             }
         });
         //return downloadimgurl;
+        Intent intent = new Intent(PassengerRegister.this, MainActivity.class);
+        startActivity(intent);
     }
 
     public String generateRandomString() {
@@ -191,6 +214,18 @@ public class PassengerRegister extends AppCompatActivity {
         return generatedString;
     }
 
-
+    public void clearAll(){
+        String imagesUri = "/main/res/drawable/user.png";
+        imageView.setImageURI(Uri.parse(imagesUri));
+        fname.setText("");
+        lname.setText("");
+        nic.setText("");
+        address.setText("");
+        email.setText("");
+        contactno.setText("");
+        mainbus.setText("");
+        pass.setText("");
+        cpass.setText("");
+    }
 
 }

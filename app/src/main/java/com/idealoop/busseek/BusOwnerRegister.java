@@ -1,5 +1,6 @@
 package com.idealoop.busseek;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -41,7 +42,7 @@ public class BusOwnerRegister extends AppCompatActivity {
     EditText address;
     EditText email;
     EditText contactno;
-    EditText noBus;
+    EditText noBus,pass,cpass;
     Uri imguri;
     String url;
     String downloadimgurl;
@@ -66,6 +67,8 @@ public class BusOwnerRegister extends AppCompatActivity {
         register = findViewById(R.id.register);
         clear = findViewById(R.id.clear);
         select = findViewById(R.id.select);
+        pass = findViewById(R.id.pass);
+        cpass = findViewById(R.id.cpass);
 
         RefImg = FirebaseStorage.getInstance().getReference().child("BusOwnerImages");
         DBRef = FirebaseDatabase.getInstance().getReference().child("BusOwner");
@@ -90,14 +93,30 @@ public class BusOwnerRegister extends AppCompatActivity {
                 OpenGallery();
             }
         });
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OpenGallery();
+            }
+        });
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String busownerID = "BO-"+id;
-
+                if(pass.getText().toString().equals(cpass.getText().toString())) {
                 StoreImage(busownerID); //Img Store
+                }
+                else
+                    Toast.makeText(BusOwnerRegister.this,"Password and Confirm Password Do not Match",Toast.LENGTH_LONG).show();
 
+            }
+        });
+
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearAll();
             }
         });
 
@@ -172,11 +191,13 @@ public class BusOwnerRegister extends AppCompatActivity {
                             Toast.makeText(BusOwnerRegister.this, " got Product Image URL  Successfully", Toast.LENGTH_SHORT).show();
 
                             String customertype = "busowner";
-                            BusOwner busOwner = new BusOwner(downloadimgurl,fname.getText().toString(), lname.getText().toString(),nic.getText().toString(), address.getText().toString(), contactno.getText().toString(), email.getText().toString(), noBus.getText().toString(), busownerID1, customertype);
+                            BusOwner busOwner = new BusOwner(downloadimgurl,fname.getText().toString(), lname.getText().toString(),nic.getText().toString(), address.getText().toString(), contactno.getText().toString(), email.getText().toString(), noBus.getText().toString(), busownerID1, customertype,pass.getText().toString());
                             busOwner.setEmail(email.getText().toString());
                             busOwner.setImgurl(downloadimgurl);
-                            DBRef.child(busownerID1).setValue(busOwner);
+                            busOwner.setPassword(pass.getText().toString());
+                            DBRef.child(busOwner.email).setValue(busOwner);
                             id++;
+                            clearAll();
 
 
                         }
@@ -185,6 +206,8 @@ public class BusOwnerRegister extends AppCompatActivity {
             }
         });
         //return downloadimgurl;
+        Intent intent = new Intent(BusOwnerRegister.this, MainActivity.class);
+        startActivity(intent);
     }
 
     public String generateRandomString() {
@@ -196,6 +219,19 @@ public class BusOwnerRegister extends AppCompatActivity {
         return generatedString;
     }
 
+    public void clearAll(){
+        String imagesUri = "drawable://"+R.drawable.user;
+        imageView.setImageURI(Uri.parse(imagesUri));
+        fname.setText("");
+        lname.setText("");
+        nic.setText("");
+        address.setText("");
+        email.setText("");
+        contactno.setText("");
+        noBus.setText("");
+        pass.setText("");
+        cpass.setText("");
+    }
 
 
 }

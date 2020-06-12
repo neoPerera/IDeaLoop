@@ -11,8 +11,9 @@ public class BusOwner {
     String CustomerType;
     String imgurl;
     String email;
+    String Password;
 
-    public BusOwner(String imgurl,String fname, String lname, String NIC, String address, String contactno, String email, String nofBuses, String busOwnerId, String customerType) {
+    public BusOwner(String imgurl,String fname, String lname, String NIC, String address, String contactno, String email, String nofBuses, String busOwnerId, String customerType, String Password) {
         this.imgurl = imgurl;
         this.fname = fname;
         this.lname = lname;
@@ -23,6 +24,7 @@ public class BusOwner {
         BusOwnerId = busOwnerId;
         CustomerType = customerType;
         this.email = email;
+        this.Password = Password;
     }
 
     public String getImgurl() {
@@ -79,6 +81,14 @@ public class BusOwner {
 
     public String getNIC() {
         return NIC;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
     }
 
     public void setNIC(String NIC) {

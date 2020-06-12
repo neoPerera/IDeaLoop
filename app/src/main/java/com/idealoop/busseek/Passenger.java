@@ -10,9 +10,19 @@ public class Passenger {
     String passengerID;
     String CustomerType;
     String imgurl;
-    String email;
 
-    public Passenger(String imgurl,String fname, String lname, String NIC, String address, String contactno, String email, String mainbusroute, String passengerID, String customerType) {
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
+    }
+
+    String email;
+    String Password;
+
+    public Passenger(String imgurl,String fname, String lname, String NIC, String address, String contactno, String email, String mainbusroute, String passengerID, String customerType, String Password) {
         this.fname = fname;
         this.lname = lname;
         this.address = address;
@@ -23,6 +33,7 @@ public class Passenger {
         CustomerType = customerType;
         this.imgurl = imgurl;
         this.email = email;
+        this.Password = Password;
     }
 
     public String getFname() {
