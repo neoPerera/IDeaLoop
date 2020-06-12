@@ -34,4 +34,33 @@
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/busOwner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bus Owner" />
+
+        <RadioButton
+            android:id="@+id/passenger"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Passenger" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login" />
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Register" />
 </LinearLayout>

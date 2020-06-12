@@ -45,7 +45,15 @@ tools:context=".PassengerRegister">
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Enter First Name"
+            android:hint="Enter Fulll Name"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/lname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="username"
             android:inputType="textPersonName" />
 
         <EditText
@@ -62,14 +70,6 @@ tools:context=".PassengerRegister">
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Enter Address"
-            android:inputType="textPersonName" />
-
-        <EditText
-            android:id="@+id/lname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Enter Last Name"
             android:inputType="textPersonName" />
 
         <EditText

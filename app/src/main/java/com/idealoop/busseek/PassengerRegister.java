@@ -100,7 +100,9 @@ public class PassengerRegister extends AppCompatActivity {
                 String pasengerID = "PA-"+id;
 
                 if(pass.getText().toString().equals(cpass.getText().toString())) {
-                    StoreImage(pasengerID); //Img Store
+
+                        StoreImage(pasengerID); //Img Store
+
                 }
                 else
                     Toast.makeText(PassengerRegister.this,"Password and Confirm Password Do not Match",Toast.LENGTH_LONG).show();
@@ -140,7 +142,7 @@ public class PassengerRegister extends AppCompatActivity {
 
     }
 
-    private void StoreImage(final String busownerID1){
+    private void StoreImage(final String busownerID1) {
 
         String productRandomKey  = generateRandomString();
 
@@ -190,10 +192,10 @@ public class PassengerRegister extends AppCompatActivity {
                             passenger.setEmail(email.getText().toString());
                             passenger.setImgurl(downloadimgurl);
                             passenger.setPassword(pass.getText().toString());
-                            DBRef.child(passenger.email).setValue(passenger);
+                            DBRef.child(passenger.lname).setValue(passenger);
                             id++;
 
-                            clearAll();
+                           // clearAll();
 
                         }
                     }
@@ -201,8 +203,8 @@ public class PassengerRegister extends AppCompatActivity {
             }
         });
         //return downloadimgurl;
-        Intent intent = new Intent(PassengerRegister.this, MainActivity.class);
-        startActivity(intent);
+      // Intent intent = new Intent(PassengerRegister.this, MainActivity.class);
+      // startActivity(intent);
     }
 
     public String generateRandomString() {

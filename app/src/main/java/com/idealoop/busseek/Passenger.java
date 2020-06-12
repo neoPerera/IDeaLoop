@@ -11,6 +11,8 @@ public class Passenger {
     String CustomerType;
     String imgurl;
 
+
+    public Passenger(){}
     public String getPassword() {
         return Password;
     }

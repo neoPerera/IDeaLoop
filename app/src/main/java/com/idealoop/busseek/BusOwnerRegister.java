@@ -195,7 +195,7 @@ public class BusOwnerRegister extends AppCompatActivity {
                             busOwner.setEmail(email.getText().toString());
                             busOwner.setImgurl(downloadimgurl);
                             busOwner.setPassword(pass.getText().toString());
-                            DBRef.child(busOwner.email).setValue(busOwner);
+                            DBRef.child(busOwner.lname).setValue(busOwner);
                             id++;
                             clearAll();
 
