@@ -1,6 +1,5 @@
 package com.idealoop.busseek;
 
-import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,10 +27,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.nio.charset.Charset;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Random;
-import java.util.SimpleTimeZone;
 
 public class BusOwnerRegister extends AppCompatActivity {
 
@@ -56,7 +52,7 @@ public class BusOwnerRegister extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bus_owner_register);
 
-        imageView = findViewById(R.id.imageView);
+        imageView = findViewById(R.id.profilePic);
         fname = findViewById(R.id.fname);
         lname  = findViewById(R.id.lname);
         nic = findViewById(R.id.nic);

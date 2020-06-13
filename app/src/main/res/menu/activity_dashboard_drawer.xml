@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/homeB"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Home" />
+        <item
+            android:id="@+id/addnewbus"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Add Bus" />
+        <item
+            android:id="@+id/viewmybuses"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="View My Buses" />
+        <item
+            android:id="@+id/signout"
+            android:icon="@drawable/common_full_open_on_phone"
+            android:title="@string/Sign_Out" />
+    </group>
+</menu>

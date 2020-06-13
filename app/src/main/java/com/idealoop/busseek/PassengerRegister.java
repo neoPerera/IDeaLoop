@@ -50,7 +50,7 @@ public class PassengerRegister extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_passenger_register);
-        imageView = findViewById(R.id.imageView);
+        imageView = findViewById(R.id.profilePic);
         fname = findViewById(R.id.fname);
         lname  = findViewById(R.id.lname);
         nic = findViewById(R.id.nic);

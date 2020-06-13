@@ -58,8 +58,12 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, "No USer in this email", Toast.LENGTH_SHORT).show();
                             }
                             else if (password.getText().toString().equals(busOwner.getPassword())) {
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                Intent intent = new Intent(LoginActivity.this, Dashboard.class);
                                 intent.putExtra("username",busOwner.lname);
+                                intent.putExtra("id",busOwner.BusOwnerId);
+                                intent.putExtra("url",busOwner.getImgurl());
+                                intent.putExtra("fullname",busOwner.getFname());
+                                intent.putExtra("email",busOwner.getEmail());
                                 startActivity(intent);
                                 Toast.makeText(LoginActivity.this, "Welcome " + busOwner.getFname() + "!!!\n Successfully Logged As a Bus Owner", Toast.LENGTH_SHORT).show();
                             } else
@@ -78,12 +82,16 @@ public class LoginActivity extends AppCompatActivity {
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 Passenger passenger = dataSnapshot.getValue(Passenger.class);
 
-                                if(busOwner == null){
+                                if(passenger == null){
                                     Toast.makeText(LoginActivity.this, "No USER in this email", Toast.LENGTH_SHORT).show();
                                 }
                                 else if(password.getText().toString().equals(passenger.getPassword())){
-                                    Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                                    Intent intent = new Intent(LoginActivity.this,Dashboard.class);
                                     intent.putExtra("username",passenger.lname);
+                                    intent.putExtra("id",passenger.passengerID);
+                                    intent.putExtra("url",passenger.getImgurl());
+                                    intent.putExtra("fullname",passenger.getFname());
+                                    intent.putExtra("email",passenger.getEmail());
                                     startActivity(intent);
                                     Toast.makeText(LoginActivity.this,"Welcome "+passenger.getFname()+"!!!\n Successfully Logged As a Passenger",Toast.LENGTH_SHORT).show();
                                 }
@@ -109,6 +117,13 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
+    }
 
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(LoginActivity.this,LoginActivity.class);
+        startActivity(intent);
     }
 }
