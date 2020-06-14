@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "132495513521",
+    "firebase_url": "https://bus-seek.firebaseio.com",
+    "project_id": "bus-seek",
+    "storage_bucket": "bus-seek.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:132495513521:android:5c27bf30bdc941c1194f90",
+        "android_client_info": {
+          "package_name": "com.idealoop.busseek"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "132495513521-ijtem7mt8bt4035mnlauhtha563rngsr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEFHctkbRBb5x3ldAAV9S4aI4CLNxxahI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "132495513521-ijtem7mt8bt4035mnlauhtha563rngsr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
