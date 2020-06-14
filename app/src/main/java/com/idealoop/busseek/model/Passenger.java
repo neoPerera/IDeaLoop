@@ -1,4 +1,4 @@
-package com.idealoop.busseek;
+package com.idealoop.busseek.model;
 
 public class Passenger {
     String fname;

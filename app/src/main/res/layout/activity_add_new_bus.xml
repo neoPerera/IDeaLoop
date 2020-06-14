@@ -49,9 +49,9 @@
                         android:textSize="16sp" />
 
                     <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="149dp"
+                        android:id="@+id/imgEx"
+                        android:layout_width="match_parent"
+                        android:layout_height="118dp"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/add" />
                 </LinearLayout>
@@ -65,7 +65,7 @@
                     <TextView
                         android:id="@+id/textView6"
                         android:layout_width="match_parent"
-                        android:layout_height="9dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center_horizontal"
                         android:paddingTop="10dp"
@@ -74,7 +74,7 @@
                         android:textSize="16sp" />
 
                     <ImageView
-                        android:id="@+id/imageView2"
+                        android:id="@+id/imgIn"
                         android:layout_width="match_parent"
                         android:layout_height="118dp"
                         android:layout_weight="1"
@@ -83,7 +83,7 @@
             </LinearLayout>
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/vehicleno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -91,7 +91,7 @@
                 android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/regno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -99,7 +99,7 @@
                 android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/editText4"
+                android:id="@+id/drivername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -107,7 +107,7 @@
                 android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/editText5"
+                android:id="@+id/drivercontact"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -115,7 +115,7 @@
                 android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/editText3"
+                android:id="@+id/routeno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -123,7 +123,7 @@
                 android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/editText7"
+                android:id="@+id/from"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -131,7 +131,7 @@
                 android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/editText6"
+                android:id="@+id/to"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -345,16 +345,16 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/addbus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:text="Add Bus to Collection" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/clear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:text="Clear All" />
 
             <TextView
                 android:id="@+id/textView12"

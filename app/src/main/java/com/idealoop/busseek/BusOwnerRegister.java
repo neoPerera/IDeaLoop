@@ -25,6 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.idealoop.busseek.model.BusOwner;
 
 import java.nio.charset.Charset;
 import java.util.Random;
@@ -54,7 +55,7 @@ public class BusOwnerRegister extends AppCompatActivity {
 
         imageView = findViewById(R.id.profilePic);
         fname = findViewById(R.id.fname);
-        lname  = findViewById(R.id.lname);
+        lname  = findViewById(R.id.usename);
         nic = findViewById(R.id.nic);
         address = findViewById(R.id.address);
         email = findViewById(R.id.email);
@@ -191,7 +192,7 @@ public class BusOwnerRegister extends AppCompatActivity {
                             busOwner.setEmail(email.getText().toString());
                             busOwner.setImgurl(downloadimgurl);
                             busOwner.setPassword(pass.getText().toString());
-                            DBRef.child(busOwner.lname).setValue(busOwner);
+                            DBRef.child(busOwner.getLname()).setValue(busOwner);
                             id++;
                             clearAll();
 

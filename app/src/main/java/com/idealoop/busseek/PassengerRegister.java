@@ -25,6 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.idealoop.busseek.model.Passenger;
 
 import java.nio.charset.Charset;
 import java.util.Random;
@@ -52,7 +53,7 @@ public class PassengerRegister extends AppCompatActivity {
         setContentView(R.layout.activity_passenger_register);
         imageView = findViewById(R.id.profilePic);
         fname = findViewById(R.id.fname);
-        lname  = findViewById(R.id.lname);
+        lname  = findViewById(R.id.usename);
         nic = findViewById(R.id.nic);
         address = findViewById(R.id.address);
         email = findViewById(R.id.email);
@@ -192,7 +193,7 @@ public class PassengerRegister extends AppCompatActivity {
                             passenger.setEmail(email.getText().toString());
                             passenger.setImgurl(downloadimgurl);
                             passenger.setPassword(pass.getText().toString());
-                            DBRef.child(passenger.lname).setValue(passenger);
+                            DBRef.child(passenger.getLname()).setValue(passenger);
                             id++;
 
                            // clearAll();

@@ -16,6 +16,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.idealoop.busseek.model.BusOwner;
+import com.idealoop.busseek.model.Passenger;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -59,8 +61,8 @@ public class LoginActivity extends AppCompatActivity {
                             }
                             else if (password.getText().toString().equals(busOwner.getPassword())) {
                                 Intent intent = new Intent(LoginActivity.this, Dashboard.class);
-                                intent.putExtra("username",busOwner.lname);
-                                intent.putExtra("id",busOwner.BusOwnerId);
+                                intent.putExtra("username",busOwner.getLname());
+                                intent.putExtra("id",busOwner.getBusOwnerId());
                                 intent.putExtra("url",busOwner.getImgurl());
                                 intent.putExtra("fullname",busOwner.getFname());
                                 intent.putExtra("email",busOwner.getEmail());
@@ -87,8 +89,8 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                                 else if(password.getText().toString().equals(passenger.getPassword())){
                                     Intent intent = new Intent(LoginActivity.this,Dashboard.class);
-                                    intent.putExtra("username",passenger.lname);
-                                    intent.putExtra("id",passenger.passengerID);
+                                    intent.putExtra("username",passenger.getLname());
+                                    intent.putExtra("id",passenger.getPassengerID());
                                     intent.putExtra("url",passenger.getImgurl());
                                     intent.putExtra("fullname",passenger.getFname());
                                     intent.putExtra("email",passenger.getEmail());
